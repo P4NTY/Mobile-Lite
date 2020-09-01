@@ -1,3 +1,21 @@
+@keyframes see_filters {
+  0% {
+            transform: translateY(-100%);
+  }
+  100% {
+            transform: translateY(0px);
+  }
+}
+
+@keyframes hide_filters {
+  0% {
+            transform: translateY(0px);
+  }
+  100% {
+            transform: translateY(-100%);
+  }
+}
+
 .navbar {
     z-index: 10;
     background: var(--Light-Grey);
@@ -28,14 +46,18 @@
     right: 0;
     bottom: 0;
     background: var(--Shadow);
+    animation: see_filters 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    z-index: 1;
 
     p {
+      opacity: 0.6;
       position: absolute;
-      bottom: 0;
+      bottom: 5vh;
       text-align: center;
       width: 100%;
-      font-size: 20px;
+      font-size: 24px;
       color: var(--White);
-      text-shadow: 0px 0px 10px var(--Black);
+      text-shadow: 0px 1px 40px var(--Black), 0px 1px 5px var(--Black);
+      text-transform: uppercase;
     }
   }

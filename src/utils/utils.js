@@ -10,6 +10,7 @@ export function formatDate(date = new Date()) {
 
     return [year, month, day].join('-');
 }
+
 //logged events to console
 export function log(text, type) {
     if (window.location.host.includes('localhost')) {
@@ -41,3 +42,11 @@ export function log(text, type) {
 }
 
 export const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name);
+
+export const createLabelColor = (labels, colors) => {
+    const temp = {};
+    labels.forEach((label, index) => {
+        temp[label] = colors[index];
+    });
+    return temp;
+}

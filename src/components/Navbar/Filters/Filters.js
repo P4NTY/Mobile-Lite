@@ -3,7 +3,9 @@ import style from "./Filters.module.scss";
 
 const Filters = () => (
     <div className={style.filter_box}>
-        FILTERS
+        <span>
+            FILTERS
+        </span>
     </div>
 )
 

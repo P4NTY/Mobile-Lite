@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import style from './realizacjaplanu.module.scss';
-import 'c3/c3.css';
 
 //import function
 import { formatDate } from '../../utils/utils';
@@ -12,9 +11,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import InfoBox from '../../components/InfoBox/InfoBox';
 import Switch from '../../components/Switch/Switch';
 import Chart from '../../components/Charts/CatBarChart';
-
-//set page URL for dbase query
-const pageURL = 'neo/realizacja_planu';
+import Loader from "../../components/Loaders/Loader_1";
 
 //switch values
 const arrSwitch = [
@@ -30,6 +27,7 @@ const createChartArr = (items) => {
         data[1].push(Math.round(REALIZACJA_JEDN*100)/100);
         data[2].push(Math.round(REALIZACJA_BANK*100)/100);
     })
+    return data;
 }
 
 const RealizacjaPlanu = ({date, icbs}) => {
@@ -39,20 +37,21 @@ const RealizacjaPlanu = ({date, icbs}) => {
     const [valSwitch, setValSwitch] = useState(arrSwitch[0].value);
 
     useEffect(()=>{
-        getDataMOBILE(13, `$ICBS:${icbs},$DATE:${date}` , pageURL).then(
-            (res) => res && setDzNS_1(res.data.items[0].REALIZACJA)
+        getDataMOBILE('value').then(
+            (res) => res && setDzNS_1(res)
         )
-        getDataMOBILE(29, `$ICBS:${icbs},$DATE:${date}` , pageURL).then(
-            (res) => res && setDzNS_2(res.data.items[0].REALIZACJA)
+        getDataMOBILE('value').then(
+            (res) => res && setDzNS_2(res)
         )
     }, [date, icbs])
 
     useEffect(()=>{
-        getDataMOBILE(14, `$ICBS:${icbs},$DATE:${date},$MIARA:'${valSwitch}'`, pageURL).then(
+        setChart(<Loader/>);
+        getDataMOBILE('ChartData').then(
             (res) => res ? (
                 setChart(<Chart
-                    items={createChartArr(res.data.items)}
-                    timeline={res.data.items[0].LINIA_CZASU}
+                    items={createChartArr(res)}
+                    timeline={res[0].LINIA_CZASU}
                     labels={['Realizacja Jednostki', 'Realizacja Banku']}
                 />)
             ) : ''
@@ -81,8 +80,8 @@ RealizacjaPlanu.propTypes = {
 }
 
 RealizacjaPlanu.defaultProps = {
-    date: formatDate('2020-01-31'),
-    icbs: '1007'
+    date: formatDate(new Date()),
+    icbs: 'Jendosta Organizacyjna'
 }
 
 export default RealizacjaPlanu;
