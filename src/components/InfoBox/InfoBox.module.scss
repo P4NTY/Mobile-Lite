@@ -1,0 +1,56 @@
+$bad_bg: var(--Boston-Red);
+$good_bg: var(--Lime-Green);
+$font: var(--White);
+$radius: 15px;
+
+.box {
+  user-select: none;
+  border-radius: $radius;
+  width: 200px;
+  color: $font;
+  margin: auto;
+  margin-top: 10px;
+
+  &.good {
+    background: $good_bg;
+  }
+  &.bad {
+    background: $bad_bg;
+  }
+
+
+  & > .title {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    letter-spacing: 1px;
+  }
+
+  & > .number {
+    display: block;
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+  }
+  & > .change {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+
+    & > i {
+      /*font-family: fontawesome;*/
+      font-size: xx-small;
+      margin-bottom: 7px;
+    }
+  }
+  & > .mini_chart {
+    display: inline-block;
+    width: 100%;
+    padding: 0px 10px 10px 10px;
+    * {
+      cursor: default !important;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.custom_selector {
+  background: var(--Light-Grey);
+  user-select: none;
+  border-radius: 10px;
+  display: block;
+  position: relative;
+  width: fit-content;
+  margin: 20px auto;
+
+  & > span {
+    display: inline-flex;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    padding: 15px;
+    display: inline-block;
+    transition: color 0.2s ease-in-out;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  input:checked + label {
+    color: var(--White);
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .item_selector {
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    background: var(--Boston-Red);
+    border-radius: 10px;
+    z-index: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  label:last-of-type {
+    float: right;
+  }
+}

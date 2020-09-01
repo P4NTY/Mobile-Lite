@@ -1,0 +1,102 @@
+:root {
+  --White: #ffffff;
+  --Graphite: #6F7779;
+  --Black: #000000;
+  --Red: #EC0000;
+  --Boston-Red: #CC0000;
+  --Ruby-Red: #990000;
+  --Sky: #DEEDF2;
+  --Medium-Sky: #CEDEE7;
+  --Dark-Sky: #9BC3D3;
+  --Yellow: #FFCC33;
+  --Lime-Green: #63BA68;
+  --Turquoise: #1BB3BC;
+  --Blue: #3366FF;
+  --Purple: #9E3667;
+  --Dark-Grey: #444444;
+  --Medium-Grey: #767676;
+  --Light-Grey: #CCCCCC;
+  --Shadow: rgba(204,204,204, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  margin-top: 70px;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+button {
+  cursor: pointer;
+}
+
+.no-see {
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
+}

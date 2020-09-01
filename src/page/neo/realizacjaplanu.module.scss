@@ -1,0 +1,16 @@
+.info_box_section {
+    display: flex;
+}
+.filter_value {
+    color: var(--Graphite);
+    background: rgba($color: #fff, $alpha: 0.8);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    position: fixed;
+    display: block;
+    top: 50px;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--Graphite);
+    z-index: 5;
+}
