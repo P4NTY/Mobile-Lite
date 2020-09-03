@@ -43,7 +43,7 @@ export function log(text, type) {
 
 export const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name);
 
-export const createLabelColor = (labels, colors) => {
+export const mapLabelColor = (labels, colors) => {
     const temp = {};
     labels.forEach((label, index) => {
         temp[label] = colors[index];

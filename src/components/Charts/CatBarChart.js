@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useUID } from 'react-uid';
+import style from "./Charts.module.scss";
 
 import 'c3/c3.css';
 import c3 from 'c3';
 import * as d3 from 'd3';
 
 //import function
-import { getCssVar, createLabelColor } from '../../utils/utils';
+import { getCssVar, mapLabelColor } from '../../utils/utils';
 
 const Chart = ({labels, items, timeline, colors}) => {
-    const id = `chart_${Math.round(Math.random()*100)}`
+    const id = `chart_${useUID()}`
 
     useEffect(()=>{
         c3.generate({
@@ -21,8 +23,9 @@ const Chart = ({labels, items, timeline, colors}) => {
                 x: 'x',
                 columns: items,
                 type: 'bar',
+                labels: true,
                 order: null,
-                colors: createLabelColor(labels, colors),
+                colors: mapLabelColor(labels, colors),
                 color: (color, d) => d.value < timeline ? d3.rgb(color).darker(0.8) : color
             },
             axis: {
@@ -32,6 +35,11 @@ const Chart = ({labels, items, timeline, colors}) => {
                 },
                 y: {
                     show: false
+                }
+            },
+            grid: {
+                y: {
+                    lines: [{value: timeline, text: 'Plan', class: style.Line}]
                 }
             }
         })
@@ -55,7 +63,7 @@ Chart.propTypes = {
 }
 
 Chart.defaultProps = {
-    timeline: 0,
+    timeline: -Infinity,
     colors: [
         getCssVar('--Red'),
         getCssVar('--Light-Grey'),

@@ -17,11 +17,7 @@ const Menu = ({user = 'User', fnHide}) => (
         </div>
         <ul className={style.menu_list}>
           <li> Home </li>
-          <li> NEO </li>
-          <li> Agile </li>
-          <li> Koszty </li>
-          <li> Kontrole </li>
-          <li> W [MIS] </li>
+          <li> Realizacja Planu </li>
           <li> Info </li>
         </ul>
         <h2>MIS Mobile</h2>

@@ -12,6 +12,7 @@ import InfoBox from '../../components/InfoBox/InfoBox';
 import Switch from '../../components/Switch/Switch';
 import Chart from '../../components/Charts/CatBarChart';
 import Loader from "../../components/Loaders/Loader_1";
+import Table from "../../components/Table/Table";
 
 //switch values
 const arrSwitch = [
@@ -70,6 +71,7 @@ const RealizacjaPlanu = ({date, icbs}) => {
             </div>
             <Switch ArrValue={arrSwitch} startValue={valSwitch} fnChnage={changeSwitch}/>
             {chart}
+            <Table/>
         </>
     );
 }
