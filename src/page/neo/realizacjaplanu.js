@@ -71,7 +71,7 @@ const RealizacjaPlanu = ({date, icbs}) => {
             </div>
             <Switch ArrValue={arrSwitch} startValue={valSwitch} fnChnage={changeSwitch}/>
             {chart}
-            <Table/>
+            {/* <Table/> */}
         </>
     );
 }
