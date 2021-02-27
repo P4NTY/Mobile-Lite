@@ -43,7 +43,7 @@ const Chart = ({labels, items, timeline, colors}) => {
                 }
             }
         })
-    }, [items, colors, labels, id, timeline])
+    }, [])
 
     return ( <div id={id}></div> )
 }
